@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  team: one
+  season: one
+  original_id: 1
+  competition: one
+
+two:
+  team: two
+  season: two
+  original_id: 1
+  competition: two
