@@ -1,0 +1,19 @@
+.container
+  table.table.table-bordered
+    thead
+      tr
+        td Team ID
+        td Name
+        td Season
+        td LOGO
+    tbody
+      - @teams.each do |team|
+        tr
+          td
+            = link_to team.original_id, team_path(team.original_id)
+          td
+            = link_to team.name, team_path(team.original_id)
+          td
+            = link_to team.season.name, season_path(team.season.original_id)
+          td
+            = image_tag team.logo, width: 35

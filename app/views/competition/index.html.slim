@@ -1,0 +1,10 @@
+.container
+  table.table.table-bordered
+    thead
+      tr
+        td Competition
+    tbody
+      tr
+        - @competitions.each do |competition|
+          td
+            = link_to competition.name, competition_path(competition.original_competition_id)

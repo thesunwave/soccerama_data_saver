@@ -1,0 +1,16 @@
+.container
+  table.table.table-bordered
+    thead
+      tr
+        td Match Events
+        td Home Team
+        td Away Team
+    tbody
+      - @matches.each do |match|
+        tr
+          td
+            = link_to match.original_id, match_path(match.original_id)
+          td
+            = link_to Team.find_by_original_id(match.home_team_id).name, team_path(match.home_team_id)
+          td
+            = link_to Team.find_by_original_id(match.away_team_id).name, team_path(match.away_team_id)

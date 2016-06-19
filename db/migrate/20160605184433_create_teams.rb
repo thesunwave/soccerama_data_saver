@@ -4,7 +4,7 @@ class CreateTeams < ActiveRecord::Migration[5.0]
       t.references :season, foreign_key: true
       t.string :name
       t.string :logo
-      t.string :original_id
+      t.integer :original_id
 
       t.timestamps
     end

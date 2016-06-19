@@ -1,0 +1,42 @@
+.container
+  table.table.table-bordered
+    thead
+      tr
+        td Team ID
+        td Name
+        td Season
+        td LOGO
+    tbody
+      tr
+        td
+          = link_to @team.original_id
+        td
+          = link_to @team.name
+        td
+          = link_to @team.season.name
+        td
+          = image_tag @team.logo, width: 35
+
+.container
+  table.table.table-bordered
+    thead
+      tr
+        td Name
+        td Nationality
+        td Position
+        td Birth date
+        td Birth country
+    tbody
+      - @players.each do |player|
+        tr
+          td
+            = player.name
+          //, competition_path(competition.original_competition_id)
+          td
+            = player.nationality
+          td
+            = player.position
+          td
+            = player.birth_date
+          td
+            = player.birth_country

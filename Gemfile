@@ -5,6 +5,12 @@ ruby '2.3.0'
 gem 'soccerama', github: 'thesunwave/soccerama-api'
 
 gem 'dotenv-rails'
+gem 'pry'
+gem 'pry-rails'
+gem 'pry-byebug'
+
+gem 'bootstrap-sass'
+gem 'slim-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '>= 5.0.0.rc1', '< 5.1'

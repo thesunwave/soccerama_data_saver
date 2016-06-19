@@ -1,0 +1,31 @@
+.container
+  table.table.table-bordered
+    thead
+      tr
+        td Event Type
+        td Player
+        td Player in
+        td Player out
+        td Team
+        td Match
+        td Minute
+        td Extra min
+    tbody
+      - @events.each do |event|
+        tr
+          td
+            p = event.event_type
+          td
+            = link_to event.player.name, player_path(event.player.original_id) if event.player
+          td
+            = link_to event.player_in.name, player_path(event.player_in.original_id) if event.player_in
+          td
+            = link_to event.player_out.name, player_path(event.player_out.original_id) if event.player_out
+          td
+            = link_to event.team.name, team_path(event.team.original_id)
+          td
+            = link_to event.match.original_id, match_path(event.match.original_id)
+          td
+            p = event.minute
+          td
+            = event.extra_min

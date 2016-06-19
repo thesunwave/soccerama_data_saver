@@ -1,0 +1,10 @@
+.container
+  table.table.table-bordered
+    thead
+      tr
+        td Seasons
+    tbody
+      tr
+        - @seasons.each do |season|
+          th
+            = link_to season.name, season_path(season.original_id)
