@@ -4,7 +4,7 @@
       tr
         td Seasons
     tbody
-      tr
-        - @seasons.each do |season|
+      - @seasons.each do |season|
+        tr
           th
             = link_to season.name, season_path(season.original_id)
