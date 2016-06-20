@@ -25,3 +25,4 @@
                 tr
                   td = link_to @player.events.substitutions.match.original_id, match_path(@player.events.substitutions.match.original_id)
                   td = link_to @player.events.substitutions.player_out, player_path(@player.events.substitutions.player_out)
+    = link_to 'Download', player_download_path(@player.original_id), class: 'btn btn-danger'

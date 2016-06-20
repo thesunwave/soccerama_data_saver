@@ -18,6 +18,8 @@
           = image_tag @team.logo, width: 35
 
 .container
+  = link_to 'Download', team_download_path(@team.original_id), class: 'btn btn-danger', disabled: @players.empty?
+
   table.table.table-bordered
     thead
       tr

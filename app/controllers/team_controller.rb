@@ -9,6 +9,12 @@ class TeamController < ApplicationController
     @players = @team.players
   end
 
+  def download
+    @team = Team.find_by_original_id(params[:team_id])
+    @players = @team.players
+    send_csv(@players)
+  end
+
   private
 
   def team_params
