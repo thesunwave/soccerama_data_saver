@@ -9,11 +9,11 @@
     tbody
       tr
         td
-          = link_to @team.original_id
+          = @team.original_id
         td
-          = link_to @team.name
+          = @team.name
         td
-          = link_to @team.season.name
+          = link_to @team.season.name, season_path(@team.season.original_id)
         td
           = image_tag @team.logo, width: 35
 
@@ -30,8 +30,7 @@
       - @players.each do |player|
         tr
           td
-            = player.name
-          //, competition_path(competition.original_competition_id)
+            = link_to player.name, player_path(player.original_id)
           td
             = player.nationality
           td

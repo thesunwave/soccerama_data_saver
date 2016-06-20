@@ -6,6 +6,7 @@
         td Name
         td Season
         td LOGO
+        td Players count
     tbody
       - @teams.each do |team|
         tr
@@ -17,3 +18,5 @@
             = link_to team.season.name, season_path(team.season.original_id)
           td
             = image_tag team.logo, width: 35
+          td
+            = team.players.count

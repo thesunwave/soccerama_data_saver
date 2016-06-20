@@ -1,2 +1,27 @@
-h1 Player#show
-p Find me in app/views/player/show.html.slim
+.container
+  table.table.table-bordered
+    thead
+      tr
+        td Name
+        td Yellow cards
+        td Goals
+        td Substitution
+    tbody
+      tr
+        td
+          = @player.name
+        td
+          = @player.events.yellowcards.count
+        td
+          = @player.events.goals.count
+        td
+          - if @player.events.substitutions.present?
+            table.table.table-striped
+              thead
+                tr
+                  td Match ID
+                  td Player to
+              tbody
+                tr
+                  td = link_to @player.events.substitutions.match.original_id, match_path(@player.events.substitutions.match.original_id)
+                  td = link_to @player.events.substitutions.player_out, player_path(@player.events.substitutions.player_out)
