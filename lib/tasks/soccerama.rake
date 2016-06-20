@@ -47,12 +47,13 @@ namespace :soccerama do
         teams = @client.teams_by_season(season, options: :players)
         puts teams
       rescue => e
+        next if e.is_a? Soccerama::Exceptions::UnpaidPlanException
         sleep 10
         retry
       end
       teams.each do |team|
         puts team
-        Team.create! do |t|
+        Team.create do |t|
           t.season_id = season
           t.name = team['name']
           t.original_id = team['id']
@@ -88,7 +89,7 @@ namespace :soccerama do
           matches = @client.matches_by_team_season(team.original_id, season)
         rescue => e
           puts e
-          next if e == Soccerama::Exceptions::UnpaidPlanException
+          next if e.is_a? Soccerama::Exceptions::UnpaidPlanException
           sleep 10
           retry
         end
